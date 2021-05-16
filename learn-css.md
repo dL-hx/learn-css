@@ -1249,21 +1249,177 @@ border: boder-width / border-style / boder-color
 
 ##### 六 非布局样式（文本折行）
 
+> chapter3\wrap.html
+
++ overflow-wrap(word-wrap)   通用换行控制
+  + 是否保留单词
++ word-break 针对多字节文字
+  + 中文句子也是单词
++ white-space 空白处是否断行
+
+``` html
+    <style>
+        .c1{
+            border: 1px solid;
+            width: 8em;
+            overflow-wrap: normal;
+            word-break: normal;
+            white-space: normal;
+        }
+
+    </style>
+
+<body>
+    <div class="c1">
+        This is a long and Supercalifragilisticexpialidocious sentence. 一二三四五六，七八九零一二，这是一句巨长巨长又没有空间可以换行的句子哦。
+    </div>
+</body>
+```
+
+
+
+###### 让一个很长的句子不换行:
+
+white-space: nowrap;
+
+![image-20210517003247232](learn-css.assets/image-20210517003247232.png)
+
 ##### 七 非布局样式（装饰性属性）
 
+> chapter3\font-weight.html
+
++ 字重(粗体) font-weight
++ 斜体 font-style:itatic
++ 下划线:text-decoration
++ 指针 cursor:    point 手形
+
+``` css
+        .weight{
+            font-weight: normal;
+            font-weight: bold;
+            font-weight: bolder;
+            font-weight: lighter;
+            font-weight: 200;
+        }
+```
 
 
 
+400 ---normal
+
+700 ---bold 
+
+生产环境多用:  normal, bold
+
+##### 八 CSS Hack
+
+> 处理浏览器  css 部分兼容性问题
+
++ Hack 即不合法但生效的写法
++ 主要用于区分不同浏览器
++ 缺点: 难理解   难维护  易失效(如: 浏览器升级)
++ 替代方案: 特性检测 
++ 替代方案: 针对性的加class(.ie6_xxx)
+
+![image-20210517005000031](learn-css.assets/image-20210517005000031.png)
 
 
 
+hack样式写在标准属性后面
+
+``` css
+body{
+    width: 200px;
+    width: 180px\9;  /*仅在IE 7、8和9中有效*/
+}
+```
 
 
 
+##### 九 案例
+
+> chapter3\checkbox.html
+
+![image-20210517005852168](learn-css.assets/image-20210517005852168.png)
+
+``` html
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>checkbox</title>
+    <style>
+        .checkbox{
+
+        }
+        .checkbox input{
+            display: none;
+        }
+        .checkbox input + label{
+            background:url(./checkbox1.png) left center no-repeat;
+            background-size:20px 20px;
+            padding-left:20px;
+        }
+        .checkbox input:checked + label{
+            background-image:url(./checkbox2.png);
+        }
+    </style>
+</head>
+<body>
+    <div class="checkbox">
+        <input type="checkbox" id="handsome"/>
+        <label for="handsome">我很帅</label>
+    </div>
+</body>
+</html>
+```
+
+![image-20210517010942337](learn-css.assets/image-20210517010942337.png)
+
+![image-20210517011021971](learn-css.assets/image-20210517011021971.png)
 
 
 
+##### 十 css面试真题
 
++ 1. css样式(选择器)的优先级
+
+  1. 计算权重确定
+  2. !important
+  3. 内联样式
+  4. 后写的优先级高
+
++ 2.雪碧图的作用
+
+  + 减少HTTP请求数 提高页面加载性能
+  + 有一些情况下可以减少图片大小
+
++ 3.自定义字体的使用场景
+
+  + 1. 宣传/品牌/banner 等固定文案
+  + 2. 字体图标
+
++ 4.base64 的使用
+
+  + 1. 减少http 请求,  增加加载性能
+  + 2. 适用于小图片
+  + 3. base64的体积约为原图的4/3
+
++ 5.伪类与伪元素的区别?
+
+  + 伪类表状态
+  + 伪元素是真的有元素
+  + 前者单冒号, 后者双冒号
+
++ 6.如何美化checkbox
+
+  + label[for] 和id
+  + 隐藏原生input
+  + :checked + label   覆盖选中时候的样式
+
+  
 
 ## 补充知识
 
