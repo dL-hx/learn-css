@@ -1419,7 +1419,89 @@ body{
   + 隐藏原生input
   + :checked + label   覆盖选中时候的样式
 
-  
+
+## 四 CSS布局
+
++ css知识体系的重中之重
++ 早期以table为主(简单)
++ 后来以技巧性布局为主(难)
++ 现在有flexbox/grid(偏简单)
++ 响应式布局是必备知识
+
+### 一 .常用的布局方法
+
++ table表格布局 :chapter4\03-table.html
++ float 浮动 + margin
++ inline-block 布局
++ flexbox布局
+
+#### 盒模型
+
+![image-20210520004413249](learn-css.assets/image-20210520004413249.png)
+
+
+
+盒子模型: 
+
+1. 宽度高度指的是   内容(content)的宽度高度
+
+2. 盒子占用空间: 盒子内容区域 + 盒子 padding + 盒子边框
+
+
+
+#### display / position
+
++ 确定元素的显示类型:chapter4\01-display.html
+  + block/inline/inline-block
++ 确定元素的位置:chapter4\02-position.html
+  + static/relative/absolute/fixed
+
+**static: 静态布局,    按照文档流**
+
+**relative: 相对定位,  相对于元素本身的初始位置,  偏移**
+
+**relative改动的时候,  不会改动其 占用的空间, 不因为布局, 改变原有布局空间的计算**
+
+**absolute: 绝对定位,  相对于body*(最近的relative/  absolute), 脱离文档流(相当于独立的存在),对其他元素的布局不产生影响,  不占据空间**
+
+**fixed:相对于可视区域/屏幕 去固定的, 脱离文档流 **
+
+
+
+##### absolute 相对于, 最近的父级 relative/  absolute,  做定位
+
+如果一直没有,  一直往上找,  最后会找到body定位
+
+
+
+
+
+#### 层级问题
+
+z-index
+
+- 1. 定位为relative/absolute/fixed 的元素可以指定z-index
+- 2. z-index谁的数值高, 谁就覆盖
+
+
+
+
+
+总结:
+
+1. absolute/ fixed 是脱离文档流的, 
+
+2. 通过z-index 确定元素的层级
+
+3. absolute: 相对于最近的父级relative/absolute的位移
+
+
+
+****
+
+
+
+
 
 ## 补充知识
 
