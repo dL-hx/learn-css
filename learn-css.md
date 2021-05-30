@@ -1816,7 +1816,167 @@ chapter4\11-responsive.html
 
      设计上:      隐藏 + 折行 + 自适应空间
 
-  6. 
+
+## 五 CSS效果
+
+效果属性
+
+"这个效果怎么实现?"
+
+
+
+CSS最出彩的一部分
+
+
+
++ box-shadow
++ text-shadow
++ border-radius
++ background
++ clip-path
+
+
+
+### 一 boxshadow 盒子阴影
+
+> chapter5\01-box-shadow.html
+
+> chapter5\02-box-shadow.html
+
++ 营造层次感(立体感)
++ 充当没有宽度的边框
++ 特殊效果
+
+![image-20210530152948721](learn-css.assets/image-20210530152948721.png)
+
+
+
+```  css
+       .container{
+            background:red;
+            width:200px;
+            height:200px;
+            margin: 100px;
+            /* box-shadow: 5px 5px 10px 0 rgba(0,0,0,.2); */
+            /* box-shadow: inset 5px 5px 10px 0 rgba(0,0,0,.2); */
+            box-shadow: 0 0 0 5px green;
+        }
+```
+
+### 二 textshadow 文字阴影
+
+> chapter5\04-text-shadow.html
+
++ 立体感
++ 印刷品质感
+
+### 三 border-radius
+
+> chapter5\05-border-radius.html
+
++ 圆角矩形
++ 圆角
++ 半圆 / 扇形
++ 一些奇怪的角角
+
+
+
+### 四 background 背景
+
++ 纹理, 图案
++ 渐变
++ 雪碧图动画
+
++ 背景图尺寸适应
+
+#### 1. 雪碧图动画
+
+> chapter5\06-background-animate.html
+
+#### 2. 背景图尺寸适应
+
+> chapter5\08-clip-path.html
+
+
+
+### 五 clip-path 路径裁剪
+
+> chapter5\08-clip-path.html
+
++ 对容器进行裁剪
++ 场景几何图形
++ 自定义路径
+
+
+
+### 六. 3D 变换
+
+> chapter5\09-3d.html
+
+![image-20210530163127695](learn-css.assets/image-20210530163127695.png)
+
+
+
+### 七 总结
+
++ 1. 如何用一个div画xxx?
+
+  box-shadow无限投影
+
+  :: before
+
+  ::after
+
++ 2. 如何产生不占空间的边框?
+     1. box-shadow
+     2. outline
+
++ 3. 如何实现圆形元素(头像)?
+
+     border-radius: 50%
+
++ 4. 如何实现ios图标的图形
+
+     ![image-20210530164844215](learn-css.assets/image-20210530164844215.png)
+
++ 5. 如何实现半圆, 扇形等图形?
+
+     border-radius组合:
+
+     有无边框
+
+     边框粗细
+
+     圆角半径
+
++ 6. 如何实现背景图居中显示/ 不重复/改变大小?
+
+     background-position
+
+     background-repeat
+
+     background-size(cover/ contain)
+
++ 7. 如何平移/放大一个元素?
+
+     transform: translateX(100px)
+
+     transform:scale(2)
+
++ 8. 如何实现3D效果
+     1. perspective:500px
+     2. transform-style:perspective-3d
+     3. transform: translate rotate ...
+
+  
+
+  
+
+
+
+
+
+
 
 ## 补充知识
 
