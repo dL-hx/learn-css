@@ -1449,7 +1449,9 @@ body{
 
 
 
-#### display / position
+### 二. 一些布局属性
+
+#### 1. display / position
 
 + 确定元素的显示类型:chapter4\01-display.html
   + block/inline/inline-block
@@ -1476,7 +1478,7 @@ body{
 
 
 
-#### 层级问题
+#### 2. 层级问题
 
 z-index
 
@@ -1487,21 +1489,334 @@ z-index
 
 
 
-总结:
+#### 总结:
 
 1. absolute/ fixed 是脱离文档流的, 
 
 2. 通过z-index 确定元素的层级
 
-3. absolute: 相对于最近的父级relative/absolute的位移
+3. **absolute: 相对于最近的父级relative/absolute的位移,   一直找到body为止**
 
-
+4. relative: 相对定位,  相对于元素自身的初始位置,  偏移,  不脱离文档流
 
 ****
 
+### 三 flexbox布局
+
++ 弹性盒子
++ 盒子本来就是并列的
++ 指定宽度即可
 
 
 
++ 还可指定顺序
+
+
+
+兼容flexbox 语法不同, wx小程序, rn 中使用较多
+
+#### 1. 平分
+
+![image-20210530130253666](learn-css.assets/image-20210530130253666.png)
+
+``` html
+<!DOCTYPE html>
+<html lang="en">
+<head> 
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .container{
+            width:800px;
+            height:200px;
+            display: flex;
+            border:1px solid black;
+        }
+        .flex{
+            background:red;
+            margin:5px;
+            flex:1
+        }
+        
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="flex">
+            flex
+        </div>
+        <div class="flex">
+            flex
+        </div>
+        <div class="flex">
+            flex
+        </div>
+        <div class="flex">
+            flex
+        </div>
+        <div class="flex">
+            flex
+        </div>
+    </div>
+</body>
+</html>
+```
+
+
+
+
+
+#### 2. 固比模型
+
+![image-20210530131520660](learn-css.assets/image-20210530131520660.png)
+
+``` html
+    <style>
+        .container{
+            width:800px;
+            height:200px;
+            display: flex;
+        }
+        .left{
+            background: red;
+            display: flex;
+            width:200px;
+        }
+        .right{
+            background: blue;
+            display: flex;
+            flex:1;
+        }
+        
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="left">
+            左
+        </div>
+        <div class="right">
+            右
+        </div>
+    </div>
+</body>
+```
+
+
+
+### 四 float布局
+
++ 元素"浮动"
++ 脱离文档流
++ 但不会脱离文本流
+
+
+
+  特点:
+
++ 对自身的影响
+  + 形成"块" (BFC), 可以设置宽高
+  + 位置尽量靠上
+  + 位置尽量靠左(右)
+
++ 对兄弟的影响:
+  + 上面贴非float元素
+  + 旁边贴float元素
+  + 不影响其他块级元素位置
+  + 影响其他块级元素内部文本
+
++ 对父级元素的影响
+
+  + 从布局上"消失"
+  + 高度塌陷
+
+  清除浮动的方式
+
+  ``` css
+          .container2::after{
+              content: 'aaa';
+              clear:both;
+              display: block;
+              visibility: hidden;
+              height:0;
+          }
+  ```
+
+  
+
+#### 1. 图文混排
+
+chapter4\04-float.html
+
+![image-20210530132255964](learn-css.assets/image-20210530132255964.png)
+
+
+
+
+
+#### 2. 浮动布局
+
+浮动, 两栏三栏布局
+
+``` css
+    <style>
+        .container{
+            width:800px;
+            height:200px;
+        }
+        .left{
+            background:red;
+             float:left;
+            height:100%;
+            width:200px;
+            /* position: absolute; */
+            height:200px;
+        }
+        .right{
+            background:blue;
+            float:right;
+            width:200px;
+            height:100%;
+        }
+        .middle{
+            margin-left:200px;
+            margin-right:200px;
+        }
+        
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="left">
+            左
+        </div>
+        <div class="right">
+            右
+        </div>
+        <div class="middle">
+            中间
+        </div>
+    </div>
+</body>
+```
+
+### 五 inline-block布局
+
+chapter4\06-inline-block.html
+
++ 像文本一样排block元素
++ 没有清除浮动等问题
++ 需要处理间隙
+
+![image-20210530134353321](learn-css.assets/image-20210530134353321.png)
+
+``` html
+    <style>
+        .container{
+            width:800px;
+            height:200px;
+            font-size:0;
+        }
+        .left{
+            font-size:14px;
+            background:red;
+            display: inline-block;
+            width:200px;
+            height:200px;
+        }
+        .right{
+            font-size:14px;
+            background:blue;
+            display: inline-block;
+            width:600px;
+            height:200px;
+        }
+        
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="left">
+            左
+        </div>
+        <div class="right">
+            右
+        </div>
+    </div>
+</body>
+```
+
+### 六 响应式设计和布局
+
++ 在不同设备上正常使用
++ 一般主要处理屏幕大小问题
++ 主要方法:
+  + 隐藏 + 折行 + 自适应空间
+  + rem/viewport/media query
+
+chapter4\09-responsive.html
+
++ 1. 加 viewport
+
++ 2. 媒体查询隐藏不重要的内容
+
+     **注意: 写媒体查询时候,  范围小的放在下面,范围大的放在上面**
+
+chapter4\10-responsive.html
+
++ 折行展示
+
+pc端 横行
+
+mobile端 竖行 ,  折行展示
+
+chapter4\11-responsive.html
+
+
+
++ html 元素默认为16像素,  不好计算,  所以可以写成10px, 20px,  使用rem 单位适配
+
+ font-size: 16 px; 
+
+
+
+### 七 CSS面试真题
+
++ 1. 实现两栏(三栏)布局的方法
+
+     + 1. 表格布局
+
+     + 2. float + margin布局
+     + 3. inline-block
+     + 4. flexbox布局
+     + 
+
++ 2. position , absolute/ fixed有什么区别?
+     + 前者相对最近的absolute /relative
+     + 后者相对屏幕(viewport)
+
++ 3. display inline-block, 间隙问题?
+
+  原因:空白字符
+
+  解决: 消灭字符(消灭字符, 加注释)/ 消灭间距(fz:0)
+
++ 4. 如何清除浮动?
+     + 让盒子负责自己的布局
+     + overflow:hidden(auto)
+     + ::after{clear:both}
+
++ 5. 如何适配移动端页面?
+
+     viewport
+
+     rem/viewport/media query
+
+     设计上:      隐藏 + 折行 + 自适应空间
+
+  6. 
 
 ## 补充知识
 
