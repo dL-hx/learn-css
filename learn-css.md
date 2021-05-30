@@ -1970,11 +1970,167 @@ CSS最出彩的一部分
 
   
 
+## 六 CSS动画
+
+动画的原理:
+
+	1. 视觉暂留作用
+	2. 画面逐渐变化
+
+### 一 CSS 中的动画类型
+
+1. transition 补间动画
+
+   chapter6\01-transition.html
+
+   > transition 过渡 
+   >
+   > transition: width 1s;    //过渡
+   >
+   > transition: width 1s, green 3s;
+   >
+   > transition: all 1s;
+
+   **timing (easing) : 定义动画进度和时间的关系**
+
+   非线性:贝塞尔曲线;
+
+   线性: 时间是均衡的;
+
+   指定时间进度, 是否为匀速
+
+   transition-timing-function
+
+2. keyframe 关键帧动画
+
+3. 逐帧动画
+
+
+
+### 二  补间动画
+
+chapter6\01-transition.html
+
+位置-平移
+
+(left/right/margin/transform)
+
+方位-旋转(transform)
+
+大小-缩放(transform)
+
+透明度(opacity)
+
+其他-线性变换(transform)
+
+
+
+![image-20210531003534635](learn-css.assets/image-20210531003534635.png)
+
+
+
+
+
+### 三 关键帧动画
+
+chapter6\02-keyframe.html
+
+![image-20210531005714822](learn-css.assets/image-20210531005714822.png)
+
++ 相当于多个补间动画
+
++ 与元素状态的变化无关
+
++ 定义更加灵活
+
+  ```  html
+       <style>
+          .container{
+              width: 100px;
+              height: 100px;
+              background: red;
+              animation: run 1s linear;
+              /* animation-direction: reverse; */
+              /* animation-fill-mode: forwards; */
+              animation-iteration-count: infinite;
+              /* animation-play-state: paused; */
+          }
+          @keyframes run{
+              0%{
+                  width: 100px;
+              }
+              50%{
+                  width: 800px;
+              }
+              100%{
+                  width: 100px;
+              }
+          }
+      </style>
+  
+  <div class="container">
+      </div>
+  ```
+
   
 
+### 四 逐帧动画
+
+chapter6\03-animal.html
+
+![image-20210531005714822](learn-css.assets/image-20210531005714822.png)
+
+特殊的关键帧动画,
+
++ 适用于无法补间计算的动画
+
++ 资源较大
+
++ 使用steps()   
+
+   animation-timing-function: steps(1);
 
 
 
+### 总结
+
+1. CSS 动画的实现方式有几种?
+
+   transition
+
+   keyframes(animation)
+
+2. 过渡动画和关键帧动画的区别?
+
+   过渡动画需要有状态变化
+
+   关键帧动画不需要状态变化
+
+   关键帧动画能控制更精细
+
+3. 如何实现逐帧动画?
+
+   使用关键帧动画 @keyframes
+
+   去掉补间(steps)
+
+4. CSS动画的性能
+
+   1. 性能不坏
+
+   2. 部分情况下优于JS
+
+   3. 但JS可以做到更好
+
+   4. 部分高危属性
+
+      box-shadow等
+
+   5. 
+
+   
+
+## 七 预处理器
 
 
 
