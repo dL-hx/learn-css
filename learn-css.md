@@ -2231,6 +2231,67 @@ LESS(.less)  js写的         Sass(.sass, scss) ruby写的
 
 
 
+## 八 Bootstrap
+
++ 一个CSS框架
++ twitter 出品
++ 提供通用基础样式
+
+> https://v4.bootcss.com/docs/getting-started/introduction/
+>
+> https://getbootstrap.com/docs/4.0/getting-started/download/
+
+### 一 Bootstrap4
+
+> chapter8\1-basic-bootstrap.html
+>
+> chapter8\1-basic.html
+
++ 兼容IE10+
++ 使用flexbox布局
++ 抛弃Nomalize.css
++ 提供布局和reboot版本
+
+
+
+![image-20210605150614580](learn-css.assets/image-20210605150614580.png)
+
+### 二 基本使用
+
+### 三 Bootstrap JS 组件
+
++ 用于组件交互
++ dropdown (下拉)
++ modal (弹窗)
++ ...
+
+
+
++ jQuery
++ Popper.js --- 弹出窗口 第三方 js 插件
++ bootstrap.js 
+
+
+
++ 使用方式: 
+  + 基于data-* 属性
+  + 基于JS API
+
+
+
+### 四 响应式布局
+
+![image-20210605155917680](learn-css.assets/image-20210605155917680.png)
+
+
+
+### 五 BootStrap 定制方法
+
++ 使用CSS同名类覆盖
++ 修改源码 重新构建
++ 引用Scss源文件修改 变量
+
+![image-20210605161704213](learn-css.assets/image-20210605161704213.png)
 
 
 
@@ -2238,8 +2299,20 @@ LESS(.less)  js写的         Sass(.sass, scss) ruby写的
 
 
 
+### 总结
 
++ 1. Bootstrap的优缺点
+     + 优点:CSS代码结构合理   现成的样式可以直接用
+     + 缺点: 定制较为繁琐 体积大
++ 2. Bootstrap 如何实现响应式布局
+     + 原理:通过 media query 设置不同分辨率的class
+     + 使用:为不同分辨率选择不同的网格class
++ 3. 如何基于Bootstrap 定制自己的样式?
+     + 使用CSS同名类覆盖
+     + 修改源码 重新构建
+     + 引用Scss源文件修改 变量
 
++ 
 
 
 
