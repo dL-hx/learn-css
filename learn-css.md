@@ -361,7 +361,7 @@ w3c ,  校验html 文档的编码的合法性
 
 + i:  icon : **通常做图标**
 
-  <i> 标签显示斜体文本效果。,  与<em> 标签类似
+  `<i> 标签显示斜体文本效果。,  与<em> 标签类似`
 
   **通常做图标**
 
@@ -437,15 +437,15 @@ w3c ,  校验html 文档的编码的合法性
 
 **heading**:标题元素  h1-h6, hgroup.
 
-**section**: 分区元素, <article>, <aside>, <nav> and <section>. 
+**section**: 分区元素, `<article>, <aside>, <nav> and <section>`. 
 
-**Interactive**: 交互元素, 为用户交互而特别设计的元素.<a>，<button>，<details>，<embed>，<iframe>， <keygen>，<label>，<select> 和 <textarea>。
+**Interactive**: 交互元素, 为用户交互而特别设计的元素.`<a>，<button>，<details>，<embed>，<iframe>， <keygen>，<label>，<select> 和 <textarea>`。
 
-**Phrasing**: 短语元素,  一句话中不完整的词汇,  **`<span>`**,   某些文字需要强调<b>, <storng>,   倾斜:<em> , 等.
+**Phrasing**: 短语元素,  一句话中不完整的词汇,  **`<span>`**,   某些文字需要强调`<b>, <storng>,   倾斜:<em>` , 等.
 
- + <del>: 删除线
+ + `<del>: 删除线`
 
-**Embedded**: 嵌入元素,  嵌入的其他资源, 嵌入的音频, 图片, 视频, iframe等, <audio>, <canvas>, <iframe>, <img>,<svg>, <video>.
+**Embedded**: 嵌入元素,  嵌入的其他资源, 嵌入的音频, 图片, 视频, iframe等, `<audio>, <canvas>, <iframe>, <img>,<svg>, <video>`.
 
 
 
@@ -2090,8 +2090,6 @@ chapter6\03-animal.html
 
    animation-timing-function: steps(1);
 
-
-
 ### 总结
 
 1. CSS 动画的实现方式有几种?
@@ -2131,6 +2129,119 @@ chapter6\03-animal.html
    
 
 ## 七 预处理器
+
+### 一 预处理器
+
++ 基于CSS的另一种语言
++ 通过工具编译成CSS
++ 添加了很多CSS不具备的特性
++ 能提升CSS文件的组织
+
+LESS(.less)  js写的         Sass(.sass, scss) ruby写的
+
+> npm install less -g 全局安装
+>
+> npm install less -S 就是本地安装,   添加依赖文件到 package.json
+
+
+
+> npm install node-sass -g
+>
+> npm install node-sass -S 就是本地安装
+
+
+
+> lessc xxx.less
+>
+> 输出编译的文件
+>
+> lessc xxx.less>xxx.css 
+
+
+
+> node-sass xxx.scss  编译sass文件
+>
+> 输出编译的文件
+>
+> node-sass  xxx.scss > xxx.css
+>
+> 展开嵌套结构
+>
+> node-sass  --output-style expanded xxx.scss > xxx.css
+
++ **嵌套  反映层级和约束**
++ **变量和计算   减少重复代码**
++ **Extend 和Mixin 代码片段(css函数)**
++ **循环   适用于复杂有规律的样式**(网格系统)
++ **import CSS  文件模块化**
+
+
+
+> 1.nest
+>
+> 2.variable
+>
+> 3.mixin (混入 复用函数)
+>
+> 4.extend 继承(mixin 代码复制带来重复情况, 更好复用)
+>
+> 5.loop
+>
+> 6.import-main
+
+
+
+### 二 CSS预处理器框架
+
++ **SASS-Compass**
++ **Less-Lesshat / EST**
++ **提供现成的 mixin**
++ **类似JS 类库  封装常用功能**
+
+
+
+> est .less 常用 less 工具库
+
+
+
+> 提供了mixin , 不用考虑兼容, 可以直接使用
+
+
+
+### 三 真题
+
++ 1. 常见的css预处理器
+     + less(node.js)
+     + Sass(Ruby 有node版本)
+
++ 2. 预处理器的作用?
+     1. 帮助更好的组织CSS代码
+     2. 提高代码复用率
+     3. 提升可维护性
++ 3. 预处理器的能力
+     + **嵌套  反映层级和约束**
+     + **变量和计算   减少重复代码**
+     + **Extend 和Mixin 代码片段(css函数)**
+     + **循环   适用于复杂有规律的样式**(网格系统)
+     + **import CSS  文件模块化**
+
++ 4. 预处理器的优缺点
+     + 优点: 提高代码复用率和可维护性
+     + 缺点:需要引入编译过程, 有学习成本
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
