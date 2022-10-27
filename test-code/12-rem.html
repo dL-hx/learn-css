@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>rem</title>
+    <style>
+        html {
+            font-size: 100px;
+            /*设置根元素的font-size: 100px , 1rem=100px*/
+        }
+
+        p{
+            background-color: #ccc;
+        }
+
+        div{
+            background-color: #ccc;
+            margin-top: 10px;
+            font-size: 0.16rem;
+        }
+    </style>
+</head>
+
+<body>
+    <p style="width: 1rem;font-size: 0.1rem;">rem1</p>
+
+    <p style="width: 2rem;font-size: 0.2rem;">rem1</p>
+    <!-- 3*100 = 300px    0.3rem = 30px -->
+    <p style="width:3rem; font-size: 0.3rem;">rem1</p>
+    <div>this is div1</div>
+    <div>this is div2</div>
+    <div>this is div3</div>
+</body>
+
+</html>

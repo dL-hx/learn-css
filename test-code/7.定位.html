@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>absolute relative定位问题</title>
+    <style>
+        body{
+            margin: 20px;
+        }
+
+        .relative{
+            width: 400px;
+            height: 200px;
+            border: 1px solid #ccc;
+       /*      position: relative;
+            top: 20px;
+            left: 10px; */
+        }
+
+        .absolute{/*相对于body 元素的定位*/
+            position: absolute;
+            width: 200px;
+            height: 100px;
+            border: 1px solid blue;
+            top: 10px;
+            left: 20px;
+        }
+
+    </style>
+</head>
+<body>
+    <p> absolute 和 relative 定位问题</p>
+    <div class="relative">
+        <div class="absolute">
+            this is absolute
+        </div>
+    </div>
+</body>
+</html>
